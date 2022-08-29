@@ -1,0 +1,40 @@
+// Copiar diretório. Usado a primeira vez. Se usado de novo irá substituir todos os arquivos locais.
+git clone (+URL do Git)
+
+// Lista dos arquivos do diretório
+ls 
+
+// Histórico de commits
+git log
+
+// Histórico resumido
+git log --oneline
+
+// Atualizar os arquivos do projeto
+git pull
+
+// Verificar alterações no projeto
+git status 
+
+// Adiciona um arquivo que será enviado no commit
+git add <path>: diretório ou arquivo específico
+git add .: todos os arquivos não listados em ".gitignore"
+
+// Faz um commit, criando uma versão do projeto naquele momento
+git commit
+
+// Envia os commits pro repositório inicial
+git push 
+
+// Volta versão anterior usando a lista de commits no "log --oneline"
+git restore --source (hash) (arquivo específico ou todos usando ".")
+
+
+
+
+
+
+Tipos:
+number
+string
+boolean
