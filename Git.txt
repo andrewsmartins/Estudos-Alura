@@ -35,6 +35,34 @@ git restore --source (hash) (arquivo específico ou todos usando ".")
 
 
 Tipos:
-number
-string
-boolean
+number  ->  numérico
+string  ->  texto (geralmente entre aspas "")
+boolean ->  verdadeiro ou falso
+
+0   =>  false
+1   =>  true
+
+// null => vazio ou nada, considerado como tipo (typeof) object
+
+// Vazio é igual a falso? (retorna: sim)
+"" == false (retorna: true)
+
+// undefined => não definido
+
+
+var: 
+Global se for declarado fora de uma função;
+De função se declarado dentro da mesma;
+Pode ser declarado novamente dentro do seu escopo;
+Separa todas as "var" e puxa pra cima do código pra carregar primeiro;
+Como pode ser declarada novamente, usada e substituida, ela fica muito solta, liberada, e pode causar problemas ao se contradizer.
+
+let:
+Escopo de bloco, ou seja, dentro de chaves;
+Podem ser atualizadas, mas não podem ser declaradas novamente;
+
+const:
+Não podem ser atualizadas nem declaradas novamente;
+
+
+
