@@ -1,3 +1,6 @@
+----- Git -----
+
+
 // Copiar diretório. Usado a primeira vez. Se usado de novo irá substituir todos os arquivos locais.
 git clone (+URL do Git)
 
@@ -34,6 +37,38 @@ git restore --source (hash) (arquivo específico ou todos usando ".")
 
 
 
+----- Java Script -----
+
+
+// Tipagem dinâmica
+O tipo (number, string ou boolean) não precisa ser declarado e pode ser alterado.
+Não é recomendável, pode causar bugs quando o código espera um tipo e recebe outro.
+
+// Multiparadigma
+Multiplas formas de resolver o mesmo problema.
+
+// Linguagem Interpretada
+Não precisa ser compilada, porém é um pouco mais lenta. Ao ser compilada ele transforma em linguagem mais próxima ao do computador.
+
+
+
+var: 
+Global se for declarado fora de uma função;
+De função se declarado dentro da mesma;
+Pode ser declarado novamente dentro do seu escopo;
+Separa todas as "var" e puxa pra cima do código pra carregar primeiro;
+Como pode ser declarada novamente, usada e substituida, ela fica muito solta, liberada, e pode causar problemas ao se contradizer.
+
+let:
+Escopo local ou de bloco, ou seja, dentro de chaves;
+Podem ser atualizadas, mas não podem ser declaradas novamente;
+
+const:
+Não podem ser atualizadas nem declaradas novamente;
+Escopo local ou de bloco, ou seja, dentro de chaves;
+
+
+
 Tipos:
 number  ->  numérico
 string  ->  texto (geralmente entre aspas "")
@@ -50,19 +85,79 @@ boolean ->  verdadeiro ou falso
 // undefined => não definido
 
 
-var: 
-Global se for declarado fora de uma função;
-De função se declarado dentro da mesma;
-Pode ser declarado novamente dentro do seu escopo;
-Separa todas as "var" e puxa pra cima do código pra carregar primeiro;
-Como pode ser declarada novamente, usada e substituida, ela fica muito solta, liberada, e pode causar problemas ao se contradizer.
 
-let:
-Escopo de bloco, ou seja, dentro de chaves;
-Podem ser atualizadas, mas não podem ser declaradas novamente;
 
-const:
-Não podem ser atualizadas nem declaradas novamente;
+
+=   ->  atribui um valor
+==  ->  compara somente os valores
+=== ->  compara valores e tipo (string/number)
+
+
+
+
+
+// Conversão Implícita
+
+const numero = 456;
+const numeroString = "456";
+
+console.log(numero + numeroString)
+> 456456 (pois somente concatenou as duas variáveis)
+
+console.log(numero + +numeroString)
+> 912 (pois "+" na variável também converte em um número)
+
+
+// Conversão Explícita
+Number() ->  converte para o tipo number
+String() ->  converte para o tipo string
+
+console.log(numero + Number(numeroString))
+> 912 (pois converteu "numeroString" em um número)
+
+
+
+
+
+
+// Template String
+
+const nome = "Ju";
+const idade = 2021-1981;
+const cidadeDeNascimento = "São Paulo";
+
+Função comum:
+const apresentacao = "meu nome é " + nome + ", minha idade é " + idade + " e nasci na cidade de " + cidadeDeNascimento;
+
+Correto:            //abre e fecha com crase (acento grave)                           //cifrão+chaves na variável
+const apresentacao = `meu nome é ${nome}, minha idade é ${idade} e nasci na cidade de ${cidadeDeNascimento}`;
+
+
+// Operador Ternário
+
+            //condição                    //true     //false
+console.log(idadeCliente >= idadeMinima ? "cerveja" : "suco")
+
+
+
+
+
+// Outros Operadores
+||: Operador “ou”, retorna true caso uma condição seja válida;
+&&: Operador “e”, retorna true somente se todas as condições forem válidas;
+!= e !==: Operadores “não igual” e “estritamente não igual”, utilizados para comparação, da mesma forma que == e === retornam true ou false.
+
+// Tipos de erro
+RangeError:     Quando o código recebe um dado do tipo certo, porém não dentro do formato aceitável. Por exemplo, um processamento que só pode ser feito com números inteiros maiores ou iguais a zero, mas recebe -1.
+ReferenceError: Normalmente ocorre quando o código tenta acessar algo que não existe, como uma variável que não foi definida; muitas vezes é causado por erros de digitação ou confusão nos nomes utilizados, mas também pode indicar um erro no programa.
+SyntaxError:    Na maior parte dos casos ocorre quando há erros no programa e o JavaScript não consegue executá-lo. Os erros podem ser métodos ou propriedades escritos ou utilizados de forma incorreta, por exemplo, operadores ou sinais gráficos com elementos a menos, como esquecer de fechar chaves ou colchetes.
+TypeError:      Indica que o código esperava receber um dado de um determinado tipo, tal qual uma string de texto, mas recebeu outro, como um número, booleano ou null.
+
+// Console API
+console.error() para exibir mensagens de erro;
+console.table() para visualizar de forma mais organizada informações tabulares;
+console.time() e console.timeEnd() para temporizar período que uma operação de código leva para ser iniciada e concluída;
+console.trace() para exibir a stacktrace de todos os pontos (ou seja, os arquivos chamados) por onde o código executado passou durante a execução.
 
 
 
