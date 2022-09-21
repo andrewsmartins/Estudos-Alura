@@ -1,0 +1,216 @@
+// Instalação do MongoDB
+Baixar e instalar o MongoDB (site oficial)
+Criar o caminho C:\data\db
+Executar (cmd): C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe
+
+//Execução do MongoDB
+Executar (cmd): mongod
+Executar (cmd): mongosh
+
+
+//Criar banco
+use nomeDoBanco
+
+//Criar coleção (tabela)
+db.createCollection(nomeDaColeção)
+
+
+
+//Buscar
+db.nomeDaColeção.find()
+
+//Buscar o PRIMEIRO
+db.nomeDaColeção.findOne()
+
+//Limitar quantidade de resultados
+db.nomeDaColeção.find().limit()
+
+//Pular quantidade de resultados
+db.nomeDaColeção.find().skip()
+
+//Ordenar resultados
+// 1 = crescente    -1 = decrescente
+db.nomeDaColeção.find().sort({nome: 1/-1})
+
+
+
+//Buscar múltiplos (campos diferentes)
+// $or = ou  incluirá ambos na busca
+
+$or : [
+    {"habilidades.nome" : "inglês"},
+    {"curso.nome" : "Medicina"}
+]
+
+
+//Buscar múltiplos (campos iguais)
+// $in = que contenha
+
+{$in: [<value1>, <value2>]}
+
+$in : [
+    {"habilidades.nome" : "inglês"},
+    {"habilidades.nome" : "alemão"}
+    ]
+
+
+//Adicionar no Array
+$push: {}
+
+{$push: {notas: 8.5}}
+
+//Adicionar Múltiplos objetos no Array
+// "each" = "Cada um"
+
+{$each: []}
+
+{$push: {notas: {$each: [8.5, 3]}}}
+
+
+//Adicionar = $and (uso implícito)
+
+
+
+
+
+
+
+//Deletar múltiplos
+db.contacts.deleteMany({tenant: ObjectId('627aa0cdde6d7e0b974c094d')})
+
+
+//Busca por data: 
+//ISODate = data formato ISO 	 	$gte = greater than			$lt = less than
+
+{createdAt: {$gte: ISODate('2022-09-01T12:00:19.000+00:00'), $lt: ISODate('2022-09-01T12:30:00.000+00:00')}}
+
+
+//Busca por TAG
+tags: ObjectId('630cd247d734ce3294116857')
+
+//Especifica a posição do Array
+'tags.0': ObjectId('630cd247d734ce3294116857')
+
+'tags.0': ObjectId('631f8133ffaa985904cad880')}, {$set: {'tags.0': ObjectId('6324d963d3c1653ea6fb47a4')
+
+
+//Busca contendo no nome
+name: {$regex : /(RESIDENCIAL)/}
+
+//Não inclui
+$ne: "55"
+
+//Existe? Boolean
+$exists: true
+
+{tenant: ObjectId('627aa0cdde6d7e0b974c094d'), countryCode: {$ne: "55", $exists: true}, {multi : true}, {$set: {countryCode: "55"}}}
+
+
+//Update múltiplos
+db.nomeDaColeção.updateMany()
+
+//Update único (somente o primeiro que encontrar)
+db.nomeDaColeção.update()
+
+//Executar múltiplas linhas (mongodb 2.2~3.2)
+{multi : true}
+
+//Substituir valor
+$set: {}
+
+//Update 2 TAG's 
+{$set: {'tags.0': ObjectId('6324d963d3c1653ea6fb47a4'), 'tags.1': ObjectId('5e15f0e35e264940e435f8af')}}
+{$set: {'tags': [ObjectId('6324d963d3c1653ea6fb47a4'), ObjectId('5e15f0e35e264940e435f8af')]}}
+
+
+
+//Remover do Array
+$pull: {}
+
+//Remover TAG 
+{$pull: {'tags': ObjectId('62431b726cfb09f5f042750b')}}
+
+//Remover 2 TAGs 
+{$pull: {tags: {$in: [ObjectId('5e45e4782d232f7254f45cfd'), ObjectId('62431b726cfb09f5f042750b')]}}}
+
+
+
+
+
+
+
+
+
+{
+"nome" : "José",
+"data_nascimento" : new Date(1999,02,26),
+"curso" : {
+    "nome" : "Administração"
+},
+"notas" : [5.0, 7.8, 9.5],
+"habilidades" : [
+    {
+    "nome" : "inglês",
+    "nivel" : "básico"
+    },
+    {    
+    "nome" : "kung-fu",
+    "nível" : "avançado"}]
+    }
+
+
+
+    {
+"nome" : "Marcos",
+"data_nascimento" : new Date(1990,01,22),
+"curso" : {
+    "nome" : "Medicina"
+},
+"notas" : [5.0, 7.8, 9.5],
+"habilidades" : [
+    {
+    "nome" : "inglês",
+    "nivel" : "avançado"
+    },
+    {    
+    "nome" : "alemão",
+    "nível" : "avançado"}]
+    },
+
+
+    {
+"nome" : "Matheus",
+"data_nascimento" : new Date(1989,05,21),
+"curso" : {
+    "nome" : "História"
+},
+"notas" : [5.0, 7.8, 9.5],
+"habilidades" : [
+    {
+    "nome" : "latim",
+    "nivel" : "básico"
+    },
+    {    
+    "nome" : "espanhol",
+    "nível" : "avançado"}]
+    }
+
+
+
+
+    {
+"nome" : "Carol",
+"data_nascimento" : new Date(1999,02,26),
+"curso" : {
+    "nome" : "Administração"
+},
+"notas" : [9.0, 2.8, 1.5],
+"habilidades" : [
+    {
+    "nome" : "inglês",
+    "nivel" : "básico"
+    },
+    {    
+    "nome" : "kung-fu",
+    "nível" : "avançado"}]
+    }
