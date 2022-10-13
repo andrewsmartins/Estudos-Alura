@@ -32,6 +32,34 @@ db.nomeDaColeção.find().skip()
 // 1 = crescente    -1 = decrescente
 db.nomeDaColeção.find().sort({nome: 1/-1})
 
+//Transforma em um Array
+db.nomeDaColeção.find().toArray()
+
+//Função JavaScript
+db.nomeDaColeção.find().forEach(função)
+
+
+var listaNomes = db.getCollection('aluraMongo').find({});
+listaNomes.forEach(doc => print(`Nome: ${doc.nome}`))
+    ===
+db.aluraMongo.find().forEach(doc => print(`Nome: ${doc.nome}`))
+
+
+
+//Buscar múltiplos campos JUNTOS (precisa atender aos dois critérios ao mesmo tempo)
+$all: [
+    ObjectId('618976ea56f0817bc188c895'), 
+    ObjectId('6189770a709ff91ffb2f4787')
+]
+
+
+//Incluir múltiplos campos JUNTOS
+$and: [
+    {"groups":"United"},
+    {"groups":"Manchester"}
+]
+
+
 
 
 //Buscar múltiplos (campos diferentes)
@@ -136,11 +164,6 @@ $pull: {}
 
 
 
-
-
-
-
-
 {
 "nome" : "José",
 "data_nascimento" : new Date(1999,02,26),
@@ -214,3 +237,7 @@ $pull: {}
     "nome" : "kung-fu",
     "nível" : "avançado"}]
     }
+
+
+
+    ...
