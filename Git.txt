@@ -1,5 +1,11 @@
------ Git -----
+//Formatar texto
+SHIFT + ALT + F
 
+//Quebra de linha
+ALT + Z 
+
+
+----- Git -----
 
 // Copiar diretório. Usado a primeira vez. Se usado de novo irá substituir todos os arquivos locais.
 git clone (+URL do Git)
