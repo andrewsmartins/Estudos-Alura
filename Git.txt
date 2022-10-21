@@ -4,6 +4,34 @@ SHIFT + ALT + F
 //Quebra de linha
 ALT + Z 
 
+//Sugestão
+CTRL + Espaço
+
+//Comentar
+CTRL + ;
+
+//Alterar mesma palavra em todo o texto
+F2
+
+//Ir até a declaração (primeira)
+F12
+
+----- NodeJS -----
+
+// Usar versão mais recente
+nvm use node
+
+// Usar versão específica
+nvm use vX.X.X
+
+// Instalar versão mais recente
+nvm install node
+
+// Instalar versão específica
+nvm install vX.X.X
+
+// Desinstalar versão específica
+nvm uninstall vX.X.X
 
 ----- Git -----
 

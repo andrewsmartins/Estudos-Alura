@@ -49,7 +49,7 @@ async function pegaAsync(arqAsync) {
         const encoding = 'utf-8';
         //await é a função que será aguardada pelo async 
         const textoInteiro = await fs.promises.readFile(arqAsync, encoding)
-        console.log(extraiLinks(textoInteiro))
+        return extraiLinks(textoInteiro)
     } catch (erro) {
         trataErro(erro)
     } finally {
@@ -65,7 +65,7 @@ function extraiLinks(textoInteiro) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const capturas = [...textoInteiro.matchAll(regex)];
     const resultados = capturas.map(captura => ({ [captura[1]]: captura[2] }));
-    return resultados;
+    return resultados.length !== 0 ? resultados : chalk.green('Não há links.');
 }
 
-pegaAsync('./arquivos/texto.md')
+export default pegaAsync;
