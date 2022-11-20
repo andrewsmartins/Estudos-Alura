@@ -69,3 +69,15 @@ function extraiLinks(textoInteiro) {
 }
 
 export default pegaAsync;
+
+/*
+No package.json é possível criar scripts:
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cli": "node ./src/cli.js"
+  }
+
+Ao executar "npm run cli" no console, ele puxará os valores do script.
+cli = node ./src/cli.js
+*/
